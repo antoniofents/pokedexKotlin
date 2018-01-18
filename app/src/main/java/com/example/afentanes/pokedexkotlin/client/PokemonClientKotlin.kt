@@ -21,7 +21,7 @@ interface PokemonClientKotlin {
     companion object {
         val url:String= "https://pokeapi.co/"
         fun getApi() :PokemonClientKotlin{
-            var okHttpClient : OkHttpClient = OkHttpClient.Builder().connectTimeout(300, TimeUnit.SECONDS).build();
+            var okHttpClient : OkHttpClient = OkHttpClient.Builder().connectTimeout(15, TimeUnit.SECONDS).build();
             var adapter : Retrofit = Retrofit.Builder().baseUrl(url).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build()
             var pokemonApi : PokemonClientKotlin =  adapter.create(PokemonClientKotlin::class.java)
             return pokemonApi
